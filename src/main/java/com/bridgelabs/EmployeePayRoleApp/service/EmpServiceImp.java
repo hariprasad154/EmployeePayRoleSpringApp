@@ -29,4 +29,9 @@ public class EmpServiceImp implements  EmpService{
         return empRepo.findById(id);
     }
 
+    @Override
+    public List<EmpData> getAllEmps() {
+        return empRepo.findAll();
+    }
+
 }
