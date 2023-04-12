@@ -10,7 +10,7 @@ public class EmpData {
 
     @Id
     @GeneratedValue
-    private long Id;
+    private int Id;
     private String name;
     private double salary;
 
