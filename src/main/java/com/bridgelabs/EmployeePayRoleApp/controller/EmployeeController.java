@@ -5,9 +5,9 @@ import com.bridgelabs.EmployeePayRoleApp.dto.ResponceDto;
 import com.bridgelabs.EmployeePayRoleApp.model.EmpData;
 import com.bridgelabs.EmployeePayRoleApp.service.EmpService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Optional;
 
 @RestController
 public class EmployeeController {
@@ -19,4 +19,11 @@ public class EmployeeController {
         ResponceDto responceDto = new ResponceDto("Data added ",empData);
         return responceDto;
     }
+    @GetMapping("/{id}")
+    public ResponceDto getEmployeeById(@PathVariable int id){
+        Optional<EmpData> empData = empService.getEmployeeById(id);
+        ResponceDto responceDto = new ResponceDto("Data added ",empData);
+        return responceDto;
+    }
+
 }
