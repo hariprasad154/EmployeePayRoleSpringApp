@@ -1,6 +1,12 @@
 package com.bridgelabs.EmployeePayRoleApp.dto;
 
+
+import lombok.Data;
+import lombok.Getter;
+
+@Data
+
 public class EmpDto {
-    public String name;
-    public double salary;
+    private String name;
+    private double salary;
 }

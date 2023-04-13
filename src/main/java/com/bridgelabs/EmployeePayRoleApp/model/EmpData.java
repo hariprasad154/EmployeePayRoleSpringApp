@@ -22,8 +22,8 @@ public class EmpData {
     private double salary;
 
     public EmpData(EmpDto empDto) {
-        this.name=empDto.name;
-        this.salary= empDto.salary;
+        this.name=empDto.getName();
+        this.salary= empDto.getSalary();
 
     }
 
