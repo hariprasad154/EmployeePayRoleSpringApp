@@ -24,7 +24,6 @@ public class EmpData {
     public EmpData(EmpDto empDto) {
         this.name=empDto.getName();
         this.salary= empDto.getSalary();
-
     }
 
     }
