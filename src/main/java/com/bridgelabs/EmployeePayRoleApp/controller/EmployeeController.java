@@ -24,7 +24,7 @@ public class EmployeeController {
     @GetMapping("/{id}")
     public ResponceDto getEmployeeById(@PathVariable int id){
         Optional<EmpData> empData = empService.getEmployeeById(id);
-        ResponceDto responceDto = new ResponceDto("Data added ",empData);
+        ResponceDto responceDto = new ResponceDto("Data is",empData);
         return responceDto;
     }
     @GetMapping("/")
