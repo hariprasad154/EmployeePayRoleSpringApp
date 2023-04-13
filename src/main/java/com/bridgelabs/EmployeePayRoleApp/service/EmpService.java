@@ -7,10 +7,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface EmpService {
-
     EmpData addEmployee(EmpDto empDto);
-
-     Optional<EmpData> getEmployeeById(int id);
-
+    EmpData getEmployeeById(int id);
     List<EmpData> getAllEmps();
 }

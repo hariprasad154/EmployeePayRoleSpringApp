@@ -22,7 +22,13 @@ public class EmployeeException {
         ResponceDto responceDto=new ResponceDto("Exception While handling Rest Api call ,",errorMessage);
         return  new ResponseEntity<>(responceDto, HttpStatus.BAD_REQUEST);
         //What ever the responce getting by using the Responce entity we are getting that
+    }
 
+    @ExceptionHandler(EmployeeCustomException.class)
+    public ResponseEntity<ResponceDto> handleEmployeeException(EmployeeCustomException exception){
+        ResponceDto responceDto=new ResponceDto("Exception While handling Rest Api call ,",exception.getMessage());
+        return new ResponseEntity<>(responceDto, HttpStatus.BAD_REQUEST);
 
     }
+
 }
