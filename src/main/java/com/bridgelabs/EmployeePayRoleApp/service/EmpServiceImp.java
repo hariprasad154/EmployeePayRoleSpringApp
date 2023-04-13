@@ -1,6 +1,7 @@
 package com.bridgelabs.EmployeePayRoleApp.service;
 
 import com.bridgelabs.EmployeePayRoleApp.dto.EmpDto;
+import com.bridgelabs.EmployeePayRoleApp.exception.EmployeeCustomException;
 import com.bridgelabs.EmployeePayRoleApp.model.EmpData;
 import com.bridgelabs.EmployeePayRoleApp.repository.EmpRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,10 +26,10 @@ public class EmpServiceImp implements  EmpService{
     }
 
     @Override
-    public Optional<EmpData> getEmployeeById(int id) {
-        return empRepo.findById(id);
-    }
+    public EmpData getEmployeeById(int id) {
 
+        return empRepo.findById(id).orElseThrow(() -> new EmployeeCustomException(" Employee Not found .. wih id: "+ id));
+    }
     @Override
     public List<EmpData> getAllEmps() {
         return empRepo.findAll();
