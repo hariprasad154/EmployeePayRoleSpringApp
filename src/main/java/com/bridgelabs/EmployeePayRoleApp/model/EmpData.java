@@ -4,8 +4,15 @@ import com.bridgelabs.EmployeePayRoleApp.dto.EmpDto;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
+@Data
+@NoArgsConstructor
+
 public class EmpData {
 
     @Id
@@ -15,27 +22,9 @@ public class EmpData {
     private double salary;
 
     public EmpData(EmpDto empDto) {
-        this.name=empDto.name;
-        this.salary= empDto.salary;
+        this.name=empDto.getName();
+        this.salary= empDto.getSalary();
 
     }
 
-    public EmpData() {
     }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public double getSalary() {
-        return salary;
-    }
-
-    public void setSalary(double salary) {
-        this.salary = salary;
-    }
-}
