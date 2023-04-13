@@ -4,6 +4,7 @@ import com.bridgelabs.EmployeePayRoleApp.dto.EmpDto;
 import com.bridgelabs.EmployeePayRoleApp.dto.ResponceDto;
 import com.bridgelabs.EmployeePayRoleApp.model.EmpData;
 import com.bridgelabs.EmployeePayRoleApp.service.EmpService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,7 +16,7 @@ public class EmployeeController {
     @Autowired
     private EmpService empService;
     @PostMapping("/add")
-    public ResponceDto addEmployee(@RequestBody EmpDto empDto){
+    public ResponceDto addEmployee(@Valid @RequestBody EmpDto empDto){
         EmpData empData =empService.addEmployee(empDto);
         ResponceDto responceDto = new ResponceDto("Data added ",empData);
         return responceDto;
@@ -23,7 +24,7 @@ public class EmployeeController {
     @GetMapping("/{id}")
     public ResponceDto getEmployeeById(@PathVariable int id){
         Optional<EmpData> empData = empService.getEmployeeById(id);
-        ResponceDto responceDto = new ResponceDto("Data added ",empData);
+        ResponceDto responceDto = new ResponceDto("Data is",empData);
         return responceDto;
     }
     @GetMapping("/")
