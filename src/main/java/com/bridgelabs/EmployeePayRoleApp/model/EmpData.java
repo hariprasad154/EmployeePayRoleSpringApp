@@ -9,6 +9,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDate;
+import java.util.List;
+
 @Entity
 @Data
 @NoArgsConstructor
@@ -20,10 +23,24 @@ public class EmpData {
     private int Id;
     private String name;
     private double salary;
+    private String gender;
+    private  String profilePic;
 
+    private LocalDate startDate;
+
+    private String note;
+
+    private List<String> phoneNumber;
+    private List<String> department;
     public EmpData(EmpDto empDto) {
         this.name=empDto.getName();
         this.salary= empDto.getSalary();
+        this.gender=empDto.getGender();
+        this.note= empDto.getNote();
+        this.phoneNumber=empDto.getPhoneNumber();
+        this.department=empDto.getDepartment();
+        this.profilePic= empDto.getProfilePic();
+        this.startDate=empDto.getStartDate();
     }
 
     }
