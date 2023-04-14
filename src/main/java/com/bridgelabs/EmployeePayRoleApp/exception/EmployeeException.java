@@ -3,6 +3,7 @@ package com.bridgelabs.EmployeePayRoleApp.exception;
 import com.bridgelabs.EmployeePayRoleApp.dto.ResponceDto;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -23,6 +24,11 @@ public class EmployeeException {
         return  new ResponseEntity<>(responceDto, HttpStatus.BAD_REQUEST);
         //What ever the responce getting by using the Responce entity we are getting that
     }
+    @ExceptionHandler(HttpMessageNotReadableException.class)
+    public ResponseEntity<ResponceDto> HttpMessageNotReadableException(HttpMessageNotReadableException exception){
+        ResponceDto responceDto=new ResponceDto("The Date shoid be in dd-mm-yyyy formate",exception.getMessage());
+        return new ResponseEntity<>(responceDto, HttpStatus.BAD_REQUEST);
+}
 
     @ExceptionHandler(EmployeeCustomException.class)
     public ResponseEntity<ResponceDto> handleEmployeeException(EmployeeCustomException exception){

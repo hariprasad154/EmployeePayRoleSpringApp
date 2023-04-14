@@ -28,7 +28,7 @@ public class EmpDto {
     @NotBlank(message = "The note shoud be written")
     private String note;
     @NotEmpty(message = "The Phone number is not empty")
-    private List<String> phoneNumber;
+    private String phoneNumber;
 
 
 }

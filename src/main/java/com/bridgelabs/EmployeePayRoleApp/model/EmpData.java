@@ -1,9 +1,7 @@
 package com.bridgelabs.EmployeePayRoleApp.model;
 
 import com.bridgelabs.EmployeePayRoleApp.dto.EmpDto;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,7 +18,7 @@ public class EmpData {
 
     @Id
     @GeneratedValue
-    private int Id;
+    private int empId;
     private String name;
     private double salary;
     private String gender;
@@ -30,7 +28,9 @@ public class EmpData {
 
     private String note;
 
-    private List<String> phoneNumber;
+    private String phoneNumber;
+    @ElementCollection
+    @CollectionTable(name = "emp_Dept",joinColumns = @JoinColumn(name = "empId"))
     private List<String> department;
     public EmpData(EmpDto empDto) {
         this.name=empDto.getName();
