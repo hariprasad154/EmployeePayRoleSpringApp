@@ -33,14 +33,18 @@ public class EmpData {
     @CollectionTable(name = "emp_Dept",joinColumns = @JoinColumn(name = "empId"))
     private List<String> department;
     public EmpData(EmpDto empDto) {
-        this.name=empDto.getName();
-        this.salary= empDto.getSalary();
-        this.gender=empDto.getGender();
-        this.note= empDto.getNote();
-        this.phoneNumber=empDto.getPhoneNumber();
-        this.department=empDto.getDepartment();
-        this.profilePic= empDto.getProfilePic();
-        this.startDate=empDto.getStartDate();
+        this.updateEmpData(empDto);
     }
+    public void updateEmpData(EmpDto empData){
+        this.name=empData.getName();
+        this.salary= empData.getSalary();
+        this.gender=empData.getGender();
+        this.note= empData.getNote();
+        this.phoneNumber=empData.getPhoneNumber();
+        this.department=empData.getDepartment();
+        this.profilePic= empData.getProfilePic();
+        this.startDate=empData.getStartDate();
+    }
+
 
     }

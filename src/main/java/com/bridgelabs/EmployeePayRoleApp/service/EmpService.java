@@ -4,10 +4,12 @@ import com.bridgelabs.EmployeePayRoleApp.dto.EmpDto;
 import com.bridgelabs.EmployeePayRoleApp.model.EmpData;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface EmpService {
     EmpData addEmployee(EmpDto empDto);
+
+    EmpData UpdateEmployee(int id ,EmpDto empDto);
     EmpData getEmployeeById(int id);
+    void delete(int id);
     List<EmpData> getAllEmps();
 }
