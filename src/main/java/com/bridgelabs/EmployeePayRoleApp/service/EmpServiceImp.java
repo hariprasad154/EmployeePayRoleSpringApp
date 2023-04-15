@@ -55,4 +55,9 @@ public class EmpServiceImp implements  EmpService{
         return empRepo.findAll();
     }
 
+    @Override
+    public List<EmpData> getEmployeeByDept(String dept) {
+        return empRepo.findByDept(dept);
+    }
+
 }

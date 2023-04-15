@@ -58,6 +58,14 @@ public class EmployeeController {
         ResponceDto responceDto = new ResponceDto("Data is",empData);
         return responceDto;
     }
+    @GetMapping("/getdept/{dept}")
+    public ResponceDto getEmployeeByDpt(@PathVariable String dept){
+        List<EmpData> empData = empService.getEmployeeByDept(dept);
+
+        ResponceDto responceDto = new ResponceDto("Data is",empData);
+        return responceDto;
+    }
+
 
 
 }

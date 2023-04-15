@@ -12,4 +12,7 @@ public interface EmpService {
     EmpData getEmployeeById(int id);
     void delete(int id);
     List<EmpData> getAllEmps();
+
+    List<EmpData> getEmployeeByDept(String dept);
+
 }
