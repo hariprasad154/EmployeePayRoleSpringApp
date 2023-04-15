@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class EmpServiceImp implements  EmpService{
@@ -26,13 +25,39 @@ public class EmpServiceImp implements  EmpService{
     }
 
     @Override
+    public EmpData UpdateEmployee(int id ,EmpDto empDto) {
+        EmpData empData=this.getEmployeeById(id);
+        empData.updateEmpData(empDto);
+        return  empRepo.save(empData);
+//        empRepo.findById(id).get().setStartDate(empDto.getStartDate());
+//        empRepo.findById(id).get().setDepartment(empDto.getDepartment());
+//        empRepo.findById(id).get().setNote(empDto.getNote());
+//        empRepo.findById(id).get().setGender(empDto.getGender());
+//        empRepo.findById(id).get().setName(empDto.getName());
+//        empRepo.findById(id).get().setPhoneNumber(empDto.getPhoneNumber());
+//        empRepo.findById(id).get().setProfilePic(empDto.getProfilePic());
+    }
+
+    @Override
     public EmpData getEmployeeById(int id) {
 
         return empRepo.findById(id).orElseThrow(() -> new EmployeeCustomException(" Employee Not found .. wih id: "+ id));
     }
+
+    @Override
+    public void delete(int id) {
+        EmpData empData=this.getEmployeeById(id);
+        empRepo.delete(empData);
+    }
+
     @Override
     public List<EmpData> getAllEmps() {
         return empRepo.findAll();
+    }
+
+    @Override
+    public List<EmpData> getEmployeeByDept(String dept) {
+        return empRepo.findByDept(dept);
     }
 
 }
