@@ -29,6 +29,7 @@ public class EmpData {
     private String note;
 
     private String phoneNumber;
+    
     @ElementCollection
     @CollectionTable(name = "emp_Dept",joinColumns = @JoinColumn(name = "empId"))
     private List<String> department;

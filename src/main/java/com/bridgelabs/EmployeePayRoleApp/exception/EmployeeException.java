@@ -29,12 +29,10 @@ public class EmployeeException {
         ResponceDto responceDto=new ResponceDto("The Date shoid be in dd-mm-yyyy formate",exception.getMessage());
         return new ResponseEntity<>(responceDto, HttpStatus.BAD_REQUEST);
 }
-
     @ExceptionHandler(EmployeeCustomException.class)
     public ResponseEntity<ResponceDto> handleEmployeeException(EmployeeCustomException exception){
         ResponceDto responceDto=new ResponceDto("Exception While handling Rest Api call ,",exception.getMessage());
         return new ResponseEntity<>(responceDto, HttpStatus.BAD_REQUEST);
-
     }
 
 }

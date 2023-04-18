@@ -8,7 +8,6 @@ import org.springframework.context.ApplicationContext;
 @SpringBootApplication
 @Slf4j
 public class EmployeePayRoleAppApplication {
-
 	public static void main(String[] args) {
 
 		ApplicationContext context=SpringApplication.run(EmployeePayRoleAppApplication.class, args);
